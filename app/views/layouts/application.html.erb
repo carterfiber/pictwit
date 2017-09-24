@@ -3,14 +3,94 @@
   <head>
     <title>Pictwit</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  	<div class="container">
+
+    <!-- ************************ navbar section ************************************-->
+  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse myNav">
+    <a class="navbar-brand" href="#">PicTwit</a>
+
+    <div class="icon-bar" id="navbarSupportedContent">
+      <div>
+        <div class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
+            <!-- <a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a> -->
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa fa-bolt fa-lg" aria-hidden="true"></i> Moments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa fa-bell fa-lg" aria-hidden="true"></i> Notifications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i> Messages</a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa fa-twitter fa-2x twit-mv" aria-hidden="true"></i> <span style="visibility: hidden;">.</span></a>
+          </li> -->
+          <!-- <li>
+       
+          </li> -->
+        </div>
+      </div>
+  
+  </div>
+
+  <!-- search box within navbar -->
+        <div class="col-md-offset-3 search-tweak">
+            <form action="" class="search-form">
+                <div class="form-group has-feedback">
+                <label for="search" class="sr-only">Search</label>
+                <input type="text" class="form-control" name="search" id="search" placeholder="search">
+                  <span class="glyphicon glyphicon-search form-control-feedback"></span>
+              </div>
+            </form>
+        </div>
+        <div class="navbar-nav mr-auto">
+        <div class="profile-pad ">
+          <% if user_signed_in? %>
+          <!-- <div class="search-tweak">
+            <form action="" class="search-form">
+                <div class="form-group has-feedback">
+                <label for="search" class="sr-only">Search</label>
+                <input type="text" class="form-control" name="search" id="search" placeholder="search">
+                  <span class="glyphicon glyphicon-search form-control-feedback"></span>
+              </div>
+            </form>
+        </div> -->
+            <span class="text-info nav-item"><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></span>
+            <!-- 
+            <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
+             -->
+            
+              <button class="w3-button w3-blue w3-round-xxlarge nav-item">Speak</button>
+            
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger navbar-btn" %>
+            <% end %>
+          <!-- <a href="#"><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></a>  --> 
+        </div>
+      </div>
+           
+  </nav>
+<!-- ************************navbar end******************************** -->
+
+
+  	 <div class="container1">
     	<%= yield %>
-	</div>
+	   </div>
+
+
+
+<!-- ******************************** scripts ************************** -->
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
   </body>
 </html>

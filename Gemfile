@@ -37,6 +37,7 @@ gem 'devise'
 
 gem 'carrierwave'
 gem 'mini_magick'
+# gem 'bootstrap', '~> 4.0.0.beta'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'font-awesome-rails'

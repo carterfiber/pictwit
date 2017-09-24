@@ -11,16 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :message %>
-    <%= form.text_field :message, id: :tweet_message %>
+
+
+  <div class="form-group">
+    <%= form.text_field :message, id: :tweet_message, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.hidden_field :user_id, id: current_user.id %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Post", class: "btn btn-primary" %>
   </div>
 <% end %>
