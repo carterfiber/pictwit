@@ -1,13 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+    <strong>User:</strong>
+    <%= link_to @tweet.user.username, 
+       show_user_path(id: @tweet.user.id) %>
+</p>
+
+<p>
   <strong>Message:</strong>
   <%= @tweet.message %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @tweet.user.username %> <%= image_tag @tweet.user.avatar.thumb %>
+  <%= link_to @tweet.user.username, show_user_path(id: @tweet.user.id) %> <%= image_tag @tweet.user.avatar.thumb %>
 </p>
 
 <%= link_to 'Edit', edit_tweet_path(@tweet) %> |

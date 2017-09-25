@@ -88,7 +88,7 @@
             <!-- <img class="d-flex mr-3" src="..." alt="placeholder image"> -->
 
             <div class="media-body">
-              <h5 class="mt-0"><%= tweet.user.username %></h5>
+              <h5 class="mt-0"><%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></h5>
               <%= tweet.message %>
               <%= image_tag tweet.user.avatar.thumb, class: "rounded" %>
             </div>
@@ -97,8 +97,9 @@
             <span>
               <%= time_ago_in_words(tweet.created_at) %> ago
             </span>
-            <hr>
+            
             <%= link_to 'Show', tweet %> <%= link_to 'Edit', edit_tweet_path(tweet) %> <%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <hr>
           </div>
           <% end %>
           <!-- <table>
