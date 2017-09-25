@@ -18,9 +18,16 @@
     <div class="icon-bar" id="navbarSupportedContent">
       <div>
         <div class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a> -->
             <!-- <a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a> -->
+          <!-- </li> -->
+          <li class="nav-item">
+            <%= link_to ' Home', tweets_path, :class => "nav-link" %>
+            
+          </li>
+          <li class="nav-item">
+            <%= link_to 'New Post', new_tweet_path, :class => "nav-link" %>
           </li>
           <!-- <li class="nav-item">
             <a class="nav-link" href="#"><i class="fa fa-bolt fa-lg" aria-hidden="true"></i> Moments</a>
@@ -43,7 +50,7 @@
   </div>
 
   <!-- search box within navbar -->
-        <div class="col-md-offset-3 search-tweak">
+        <div class="col-md-offset-5 search-tweak nav-item">
             <form action="" class="search-form">
                 <div class="form-group has-feedback">
                 <label for="search" class="sr-only">Search</label>
@@ -52,8 +59,8 @@
               </div>
             </form>
         </div>
-        <div class="navbar-nav mr-auto">
-        <div class="profile-pad ">
+        <!-- <div class="navbar-nav mr-auto"> -->
+        <div class="profile-pad nav-item">
           <% if user_signed_in? %>
           <!-- <div class="search-tweak">
             <form action="" class="search-form">
@@ -64,18 +71,19 @@
               </div>
             </form>
         </div> -->
-            <span class="text-info nav-item"><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></span>
-            <!-- 
-            <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
-             -->
+            <!-- <span class="btn btn-primary fa fa-user-circle fa-2x navbar-btn"></span> -->
             
-              <button class="w3-button w3-blue w3-round-xxlarge nav-item">Speak</button>
+            <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary navbar-btn" %>
+             
             
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger navbar-btn" %>
+              <!-- <button class="w3-button w3-blue w3-round-xxlarge nav-item">Speak</button> -->
+            <span class="profile-pad nav-item">
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger navbar-btn nav-item" %>
             <% end %>
+          </span>
           <!-- <a href="#"><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></a>  --> 
         </div>
-      </div>
+      <!-- </div> -->
            
   </nav>
 <!-- ************************navbar end******************************** -->

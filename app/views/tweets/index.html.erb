@@ -8,7 +8,10 @@
         <div class="row">   
               <div class="media">
                 <!-- <img class="img-fluid2 image" src="css/assets/imgs/diversityphotos-p49-3717rdx.jpg"> -->
-                <%= image_tag("DiversityPhotos-p49-3717rdx.jpg", :alt => "profile cover image", :class => "img-fluid2 image") %>
+                <!--<%= image_tag("DiversityPhotos-p49-3717rdx.jpg", :alt => "profile cover image", :class => "img-fluid2 image") %>-->
+                <!-- 
+                 image_tag @user.avatar.thumb
+                 -->
               </div>  
         </div>
         <div class="row">   
@@ -88,6 +91,12 @@
               <h5 class="mt-0"><%= tweet.user_id %></h5>
               <%= tweet.message %>
             </div>
+            <li class="list-group-item">Created on <%= post.created_at.strftime("%B %e, %Y at %l:%M") %></li>
+            
+<!-- version two - created at -->
+            <li>
+              <%= time_ago_in_words(tweet.created_at) %>
+            </li>
             <%= link_to 'Show', tweet %> <%= link_to 'Edit', edit_tweet_path(tweet) %> <%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
           <% end %>
@@ -181,9 +190,6 @@
       </div>
     </div>
   </div>
-
-
-<br>
 
 <!-- </div> -->
 
