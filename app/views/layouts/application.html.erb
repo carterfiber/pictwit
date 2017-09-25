@@ -13,78 +13,39 @@
 
     <!-- ************************ navbar section ************************************-->
   <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse myNav">
-    <a class="navbar-brand" href="#">PicTwit</a>
-
-    <div class="icon-bar" id="navbarSupportedContent">
-      <div>
-        <div class="navbar-nav mr-auto">
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a> -->
-            <!-- <a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a> -->
-          <!-- </li> -->
-          <li class="nav-item">
-            <%= link_to ' Home', tweets_path, :class => "nav-link" %>
-            
-          </li>
-          <li class="nav-item">
-            <%= link_to 'New Post', new_tweet_path, :class => "nav-link" %>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-bolt fa-lg" aria-hidden="true"></i> Moments</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-bell fa-lg" aria-hidden="true"></i> Notifications</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i> Messages</a>
-          </li> -->
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-twitter fa-2x twit-mv" aria-hidden="true"></i> <span style="visibility: hidden;">.</span></a>
-          </li> -->
-          <!-- <li>
-       
-          </li> -->
-        </div>
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-brand">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "Home", root_path, class: "navbar-brand" %>
       </div>
-  
-  </div>
-
-  <!-- search box within navbar -->
-        <div class="col-md-offset-5 search-tweak nav-item">
-            <form action="" class="search-form">
-                <div class="form-group has-feedback">
-                <label for="search" class="sr-only">Search</label>
-                <input type="text" class="form-control" name="search" id="search" placeholder="search">
-                  <span class="glyphicon glyphicon-search form-control-feedback"></span>
-              </div>
-            </form>
-        </div>
-        <!-- <div class="navbar-nav mr-auto"> -->
-        <div class="profile-pad nav-item">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Compose New Tweet", new_tweet_path %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-          <!-- <div class="search-tweak">
-            <form action="" class="search-form">
-                <div class="form-group has-feedback">
-                <label for="search" class="sr-only">Search</label>
-                <input type="text" class="form-control" name="search" id="search" placeholder="search">
-                  <span class="glyphicon glyphicon-search form-control-feedback"></span>
-              </div>
-            </form>
-        </div> -->
-            <!-- <span class="btn btn-primary fa fa-user-circle fa-2x navbar-btn"></span> -->
-            
-            <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary navbar-btn" %>
-             
-            
-              <!-- <button class="w3-button w3-blue w3-round-xxlarge nav-item">Speak</button> -->
-            <span class="profile-pad nav-item">
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger navbar-btn nav-item" %>
-            <% end %>
-          </span>
-          <!-- <a href="#"><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></a>  --> 
-        </div>
-      <!-- </div> -->
-           
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <% if current_user.avatar.blank? == false %>
+                  <%= image_tag current_user.avatar.url, size:25, class: "user-pic-nav" %>
+                <% end %> 
+                @<%= current_user.username %> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </nav>
 <!-- ************************navbar end******************************** -->
 

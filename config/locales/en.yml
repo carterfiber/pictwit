@@ -31,3 +31,27 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      tweet:
+        message: "A Tweet"
+      user:
+        username: "A username"
+    errors:
+      models:
+        tweet:
+          attributes:
+            message:
+              blank: " is missing. Cat got your tongue?"
+              too_long: " is only 140 charactors. You know that!"
+        user:
+          attributes:
+            username:
+              blank: " is missing. Pick a username please."
+              taken: " must be unique. Someone already got that one. Sorry."
+
+
+
+
+
+
