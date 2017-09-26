@@ -9,6 +9,7 @@ class EpicenterController < ApplicationController
   		if current_user.following.include?(t.user_id) || current_user.id == t.user_id
   			@following_tweets.push(t)
   		end 
+      # @following_tweets = @following_tweets.order('created_at' DESC)
   	end
   end
 
@@ -31,5 +32,14 @@ class EpicenterController < ApplicationController
   	current_user.save
 
   	redirect_to show_user_path(id: params[:id])
+  end
+
+  def epi_tweet
+    @tweet = Tweet.new
+
+    @tweet.message = "#{params[:tweet][:message]}"
+    @tweet.user_id = "#{params[:tweet][:user_id].to_i}"
+    @tweet.save 
+    redirect_to root_path
   end
 end

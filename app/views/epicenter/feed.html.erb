@@ -1,11 +1,29 @@
+<div class='col-md-2'>
+</div>
+<div class='col-md-8'>
 <h1 class="text-primary">@<%= current_user.username %>'s Twitter Feed</h1>
-<p>Here is what your friends are posting: </p>
+<p>Here is what's going on: </p>
 
-<div>
-	<% @following_tweets.each do |t| %>
-	<div>
-		<p>@<%= link_to t.user.username, show_user_path(id: t.user.id) %></p>
-		<p><%= t.message.html_safe %></p>
-	</div>
-	<% end %>
+<%= form_for Tweet.new, url: {action: 'epi_tweet'} do |f| %>
+	<%= f.text_field :message, class: 'form-control' %>
+	<%= f.hidden_field :user_id, value: current_user.id %>
+	<%= f.submit 'New Tweet', class: 'btn btn-info' %>
+<% end %>
+
+<% @following_tweets.each do |t| %>
+<div class="media">
+  <div class="media-left">
+    <%= link_to image_tag t.user.avatar.thumb, class: "img-rounded" %>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><p>@<%= link_to t.user.username, show_user_path(id: t.user.id) %></p></h4>
+    <p><%= t.message.html_safe %></p>
+    <p><%= time_ago_in_words(t.created_at) %> ago</p>
+  </div>
+</div>
+<hr>
+<% end %>
+
+</div>
+<div class='col-md-2'>
 </div>

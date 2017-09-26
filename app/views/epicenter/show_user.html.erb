@@ -1,9 +1,9 @@
-<h1>@<%= @user.username %>'s Profile and Tweets</h1>
+<h1 class="text-info">@<%= @user.username %>'s Profile and Tweets</h1>
 
-<p><%= @user.name %></p>
+<p class="text-info">Username: <%= @user.name %></p>
 
-<p><%= @user.location %></p>
-<p><%= @user.bio %></p>
+<p class="text-info">Location: <%= @user.location %></p>
+<p class="text-info">About Me: <%= @user.bio %></p>
 
 <p>
     <% if current_user.following.include?(@user.id) %>
@@ -11,13 +11,35 @@
     <% else %>
         <% if current_user.id != @user.id %>
 	    <%= link_to "Follow", now_following_path(id: @user.id), class: "btn btn-primary" %>
-	<% end %>
+
+        <% else %>
+
+            <%= form_for Tweet.new, url: {action: 'epi_tweet'} do |f| %>
+                <%= f.text_field :message, class: 'form-control' %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.submit 'New Tweet', class: 'btn btn-info' %>
+            <% end %>
+
+	   <% end %>
     <% end %>
 </p>
 
 <% @user.tweets.each do |tweet| %>
-    <div>
-        <p>@<%= @user.username %></p>
-	<p><%= tweet.message %></p>
+    <div class="media">
+        <div class="media-left">
+            <%= link_to image_tag tweet.user.avatar.thumb, class: "img-rounded" %>
+        </div>
+        <div class="media-body">
+        <h4 class="media-heading">@<%= @user.username %></h4>
+	       <p><%= tweet.message.html_safe %></p>
+        </div>
     </div>
+    <hr>
+    
 <% end %>
+
+
+
+    
+  
+  

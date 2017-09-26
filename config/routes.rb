@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'epicenter/feed'
 
+  post 'epi_tweet' => 'epicenter#epi_tweet'
+
   get  'show_user' => 'epicenter#show_user'
 
   get 'now_following' => 'epicenter#now_following'
