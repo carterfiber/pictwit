@@ -27,7 +27,7 @@
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
 
-            <li><%= link_to "Compose New Tweet", new_tweet_path %></li>
+            <li><%= link_to "Compose New Tweet", root_path %></li>
             <li><%= link_to "My Page", show_user_path(id: current_user) %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
