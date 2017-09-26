@@ -89,7 +89,7 @@
 
             <div class="media-body">
               <h5 class="mt-0"><%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></h5>
-              <%= tweet.message %>
+              <%= tweet.message.html_safe %>
               <%= image_tag tweet.user.avatar.thumb, class: "rounded" %>
             </div>
             

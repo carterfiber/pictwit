@@ -2,10 +2,13 @@ class EpicenterController < ApplicationController
 
 	before_action :authenticate_user!
 
+  include TweetsHelper
+
+
   def feed
   	@following_tweets = Array.new
 
-  	Tweet.all.each do |t|
+  	Tweet.order(id: :desc).each do |t|
   		if current_user.following.include?(t.user_id) || current_user.id == t.user_id
   			@following_tweets.push(t)
   		end 
@@ -35,11 +38,20 @@ class EpicenterController < ApplicationController
   end
 
   def epi_tweet
-    @tweet = Tweet.new
+    # @tweet = Tweet.new
 
-    @tweet.message = "#{params[:tweet][:message]}"
-    @tweet.user_id = "#{params[:tweet][:user_id].to_i}"
+    # @tweet.message = "#{params[:tweet][:message]}"
+    # @tweet.user_id = "#{params[:tweet][:user_id].to_i}"
+
+    @tweet = Tweet.create(message: params[:tweet][:message], user_id: params[:tweet][:user_id].to_i)
+    @tweet = get_tagged(@tweet) #method from the helper 
     @tweet.save 
+
     redirect_to root_path
+  end
+
+  def tag_tweets
+    @tag = Tag.find(params[:id])
+    
   end
 end
