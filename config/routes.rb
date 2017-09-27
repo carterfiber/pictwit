@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   
   root 'epicenter#feed'
 
+  get 'all_users' => 'epicenter#all_users'
+
+  get 'following' => 'epicenter#following'
+  get 'followers' => 'epicenter#followers'
+
 
 
   resources :tweets

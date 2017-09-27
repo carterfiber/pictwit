@@ -29,6 +29,8 @@
 
             <li><%= link_to "Compose New Tweet", root_path %></li>
             <li><%= link_to "My Page", show_user_path(id: current_user) %></li>
+            <li><%= link_to "All Users", all_users_path %></li>
+
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <% if current_user.avatar.blank? == false %>
@@ -50,7 +52,31 @@
 
 
   	 <div class="container1">
+      <div class='col-md-3'>
+        <div class="well">
+          <% if user_signed_in? %>
+                  <h2><%= image_tag current_user.avatar.thumb, :class => 'img-thumbnail center-block' %></h2><br />
+                  <h4 class="text-info text-center">@<%= current_user.username %></h4>
+                  <h4 class="text-info text-center">Wreckin': <%= current_user.location %></h4>
+                  <h4 class="text-info text-center">About: <%= current_user.bio %></h4>
+                  <p class="text-info text-center">Following: <%= link_to current_user.following.length, following_path(id: current_user.id) %> </p>
+                  <p class="text-info text-center">Followers: <%= link_to current_user_followers(current_user.id) %> </p>
+                  <p class="text-info text-center">Tweets: <%= link_to tweet_count(current_user.id), show_user_path(id: current_user.id) %> </p>
+
+          <% end %> 
+        
+        
+      </div>
+      </div>
+      <div class='col-md-6'>
+        <div class="well">
     	<%= yield %>
+        </div>
+      </div>
+      <div class='col-md-3'>
+        <div class='well'>
+        </div>
+      </div>
 	   </div>
 
 

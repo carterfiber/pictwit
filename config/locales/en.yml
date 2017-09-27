@@ -31,6 +31,14 @@
 
 en:
   hello: "Hello world"
+  datetime:
+    distance_in_words:
+      x_minutes:
+        one: "1min"
+        other: "${count}min"
+      about_x_hours:
+        one: "1hr"
+        other: "%{count}hr"
   activerecord:
     attributes:
       tweet:
@@ -49,6 +57,7 @@ en:
             username:
               blank: " is missing. Pick a username please."
               taken: " must be unique. Someone already got that one. Sorry."
+
 
 
 
