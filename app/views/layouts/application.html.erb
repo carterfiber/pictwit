@@ -11,17 +11,43 @@
 
   <body>
 
+
+    <div class="container-full" id="wrapper">
+<!-- *********** new navbar **************** -->
+      <nav class="topnav" id="myTopnav">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Pictwit", root_path %></li>
+            <li><%= link_to "All Tweets", tweets_path %></li>
+          </ul>
+            
+
+          
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              
+        
+                <li><%= link_to "Log In", new_user_session_path %></li>
+                <li><%= link_to "Sign Up", new_user_registration_path %> </li>
+            
+              </ul> 
+        </div>
+      </nav>
+<!-- ******** end navbar ********** -->
+
+
     <!-- ************************ navbar section ************************************-->
-  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <div class="container1">
+  <nav class="navbar topnav">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-brand">
-        <%= link_to "Pictwit", root_path %>
-      </div>
+      <li class="nav navbar-nav">
+        
+      </li>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          
+          <li><%= link_to "Pictwit", root_path %></li>
           <li><%= link_to "All Tweets", tweets_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -46,15 +72,18 @@
         </ul>
       </div>
     </div>
-    </div>
+    
   </nav>
 <!-- ************************navbar end******************************** -->
 
 
-  	 <div class="container1">
-      <div class='col-md-3'>
-        <div class="well">
+  	 <!-- <div class="container1"> -->
+      
           <% if user_signed_in? %>
+              <div class='col-md-3'>
+                      <div class="well">
+
+
                   <h2><%= image_tag current_user.avatar.thumb, :class => 'img-thumbnail center-block' %></h2><br />
                   <h4 class="text-info text-center">@<%= current_user.username %></h4>
                   <h4 class="text-info text-center">Wreckin': <%= current_user.location %></h4>
@@ -68,16 +97,16 @@
         
       </div>
       </div>
-      <div class='col-md-6'>
-        <div class="well">
+      <div class='col-md-9'>
+        <!-- <div class="well"> -->
     	<%= yield %>
-        </div>
+        <!-- </div> -->
       </div>
-      <div class='col-md-3'>
-        <div class='well'>
-        </div>
-      </div>
-	   </div>
+      <!-- <div class='col-md-3'> -->
+        <!-- <div class='well'> -->
+        <!-- </div> -->
+      <!-- </div> -->
+	   <!-- </div> -->
 
 
 
@@ -85,6 +114,6 @@
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+</div>
   </body>
 </html>

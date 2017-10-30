@@ -31,16 +31,27 @@
     line-height: 20px;
  }
 
+/* Add a black background color to the top navigation */
+.topnav {
+    /*background-color: #333;*/
+    /*background-color: black;*/
+    background: rgb(30, 31, 33); 
+    background: rgba(30, 31, 33, 1); 
+    /*overflow: hidden;*/
+    /*opacity: 0.3;*/
+}
+
+
+
 /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
-    display: inline;
-    color: #2f3238;
-    text-align: left;
-    padding: 15px 15px 15px 15px;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 24px 26px 24px 26px;
     text-decoration: none;
-    font-size: 14px;
-    font-family: arial;
+    font-size: 17px;
 }
 
 /* Change the color of links on hover */
@@ -50,15 +61,10 @@
 }
 
 /* Add a color to the active/current link */
-.topnav a.active {
+/*.topnav a.active {
     background-color: #4CAF50;
     color: white;
-}
-
-.myNav {
-  border-bottom: 1px solid #a5a7aa;
-  box-shadow: 0px 1px 5px #888888;
-}
+}*/
 
 /*************************navbar end************************************/
 
@@ -210,8 +216,8 @@ body {
 }
 
 .container1 {
-    width: 92%;
-    margin: auto;
+    width: 100%;
+    
 }
 
 
@@ -298,4 +304,14 @@ body {
 
 .alert-max {
   width: 100%;
+}
+
+#body-user { 
+  background: url(https://s3.amazonaws.com/tts-test-upload/static+files/IMG_7013.jpg) no-repeat center center fixed; 
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 0;
+
 }
